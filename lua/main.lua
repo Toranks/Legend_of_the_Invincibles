@@ -552,7 +552,7 @@ local function unit_information_part_4()
   end
 
   local result = _"<span font_family='monospace' weight='bold' color='#60A0FF'>"
-  ..                               _"	Damage		Resistance		Penetration</span> \n"
+  ..                               _"	Damage			Resistance		Penetration</span> \n"
   .. _"<span font_family='monospace'>	Blade				" .. form_one_line("blade")
   .. _"<span font_family='monospace'>	Pierce				" .. form_one_line("pierce")
   .. _"<span font_family='monospace'>	Impact				" .. form_one_line("impact")
@@ -584,7 +584,7 @@ local function unit_information_part_5()
   end
 
   local result = _"<span font_family='monospace' weight='bold' color='#60A0FF'>"
-  ..                               _"	Location				Defence			Movement cost</span> \n"
+  ..                               _"	Location				Defence		Movement cost</span> \n"
   .. _"<span font_family='monospace'>In forests					" .. form_one_line("forest")
   .. _"<span font_family='monospace'>In frozen places			" .. form_one_line("frozen")
   .. _"<span font_family='monospace'>On flat terrains			" .. form_one_line("flat")
