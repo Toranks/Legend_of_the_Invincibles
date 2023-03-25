@@ -702,7 +702,7 @@ function wesnoth.wml_actions.update_stats(cfg)
 		local unit = units[i].__cfg
 		if wml.get_child(unit, "resistance") and wml.get_child(unit, "movement_costs") and wml.get_child(unit, "defense") then
 			unit = wesnoth.update_stats(unit)
-			wesnoth.units.to_map(unit)
+			wesnoth.units.to_map(unit,false) -- Adding ",false" to avoid trigger unit placed
 		end
 	end
 end

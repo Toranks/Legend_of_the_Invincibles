@@ -82,7 +82,7 @@ function wesnoth.wml_actions.award_extra_experience(cfg)
 		else
 			unit.experience = unit.experience + added
 		end
-		wesnoth.units.to_map(unit)
+		wesnoth.units.to_map(unit,false)
 		if unit.experience >= unit.max_experience then
 			wesnoth.wml_actions.store_unit{ { "filter", { id = unit.id }}, variable = "level_store" }
 			wesnoth.wml_actions.unstore_unit{ variable = "level_store", find_vacant = false }
@@ -225,7 +225,7 @@ function wesnoth.wml_actions.harm_unit_loti(cfg)
 
 			-- Extract unit and put it back to update animation if status was changed
 			wesnoth.units.extract(unit_to_harm)
-			wesnoth.units.to_map(unit_to_harm, unit_to_harm.x, unit_to_harm.y)
+			wesnoth.units.to_map(unit_to_harm, unit_to_harm.x, unit_to_harm.y,false)
 
 			if add_tab then
 				text = string.format("%s%s", "\t", text)
@@ -686,14 +686,14 @@ function wesnoth.wml_actions.pre_advance_stuff(cfg)
             end
             local v = wml.get_child(unit, "variables")
             v.achieved_amla = true
-            wesnoth.units.to_map(unit)
+            wesnoth.units.to_map(unit,false)
             loti_needs_advance = true
         end
     else
         local v = wml.get_child(unit, "variables")
         v.may_need_respec = true
 	unit.hitpoints = unit.max_hitpoints
-        wesnoth.units.to_map(unit)
+        wesnoth.units.to_map(unit,false)
     end
 end
 
@@ -719,7 +719,7 @@ function wesnoth.wml_actions.advance_stuff(cfg)
             }}
             table.insert(m, a)
 	    clear_potions()
-            wesnoth.units.to_map(unit)
+            wesnoth.units.to_map(unit,false)
         end
         return
     end
@@ -730,7 +730,7 @@ function wesnoth.wml_actions.advance_stuff(cfg)
 		unit[i][2] = {}
 	end
     end
-    wesnoth.units.to_map(unit)
+    wesnoth.units.to_map(unit,false)
     loti_needs_advance = nil
 end
 
@@ -861,7 +861,7 @@ function wesnoth.wml_actions.check_unit_title(cfg)
 	if cfg.variable then
 		wml.variables[cfg.variable] = u
 	else
-		wesnoth.units.to_map(u)
+		wesnoth.units.to_map(u,false)
 	end
 end
 
